@@ -6,7 +6,7 @@ Persian, responsive static calculator implementing **INSO 4241-2:1404 (2025), si
 
 - Product benchmark for M1 / M2 / N1 / N2, product stages 1–2.
 - Automatic M₀: 1278 kg for M1, 1431 kg for M2/N1/N2. Stage 2 deliberately uses stage 1 M₀, as requested; disclosed on screen.
-- Van, automatic transmission, permanent AWD allowances, applied additively to the unrounded base benchmark, followed by mathematical rounding to one decimal (5-1-3).
+- Van, automatic transmission, permanent AWD allowances, applied additively to the unrounded base benchmark, without intermediate or final rounding (user override of clause 5-1-3).
 - Full A–G+ boundaries, correct open lower / closed upper intervals, no grade beyond 110%.
 - Energy label preview using figure 1 structure and specified hexadecimal arrow colors; optional descriptive and fuel-consumption inputs. Preview is not an officially approved label.
 - Bi-fuel equivalent emissions (formulas 1–3), including the 240 km discontinuity and 300 km cap prescribed in the source.
@@ -49,6 +49,10 @@ node --check engine.js
 node engine.test.js
 ```
 
-Tests cover all grade boundaries, M₀ selection, both product stages, additive allowances, decimal half-rounding, table 2 interpretations, bi-fuel boundaries, weighted mass vs. corrected-count emissions, corporate stages/constants, all credit types, strict ICE eligibility, fallback credit, mixed family evaluation and input validation.
+Tests cover all grade boundaries, M₀ selection, both product stages, additive allowances, unrounded benchmarks and three-decimal truncation, table 2 interpretations, bi-fuel boundaries, weighted mass vs. corrected-count emissions, corporate stages/constants, all credit types, strict ICE eligibility, fallback credit, mixed family evaluation and input validation.
 
 `engine.js` contains calculation logic only; `app.js` handles presentation. The supplied PDF is not republished in this public repository.
+
+## Precision policy (user override)
+
+All internal calculations, grade boundaries and compliance comparisons retain full JavaScript numeric precision. No one-decimal rounding is applied to G. Displayed numeric results and numeric CSV values are truncated toward zero to exactly three decimal places (not rounded). Formula coefficients remain exact as specified, including 0.0267. Bi-fuel results transfer their full value to the product calculation. This explicitly overrides the standard's one-decimal benchmark rounding rule in clause 5-1-3 at the user's request.
