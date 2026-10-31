@@ -1,0 +1,12 @@
+const assert=require('node:assert/strict');const E=require('./engine.js');let checks=0;function eq(a,b){assert.ok(Math.abs(a-b)<1e-8,`${a} != ${b}`);checks++}function same(a,b){assert.equal(a,b);checks++}const base={group:'M1',stage:1,mass:1278,co2:150};
+eq(E.product(base).g,167);eq(E.product({...base,stage:2}).g,163);for(const group of ['M2','N1','N2']){eq(E.product({...base,group,mass:1431}).g,224);eq(E.product({...base,group,mass:1431,stage:2}).g,217)}
+eq(E.product({...base,van:true}).g,175.4);eq(E.product({...base,van:true,automatic:true,awd:true}).g,192.1);eq(E.product({...base,group:'N1',mass:1431,van:true,automatic:true,awd:true}).g,235.2);eq(E.product({...base,group:'N1',mass:1431,van:true,automatic:true,awd:true,table2PerCase:true}).g,257.6);
+for(const g of [167,163,175.4,224,235.2]){same(E.grade(0,g),'A');E.LIMITS.forEach((l,i)=>{same(E.grade(l*g,g),E.GRADES[i]);same(E.grade(l*g+1e-6,g),E.GRADES[i+1]||'خارج از محدوده')})}
+for(const [r,f] of [[0,.5],[239.999,.5],[240,.6],[270,.8],[299.999,.9999933333333333],[300,1],[500,1]]){eq(E.equivalent(r,100,200).f,f);eq(E.equivalent(r,100,200).co2,f*100+(1-f)*200)}
+const rows=[{...base,tech:'ice',n:100},{...base,tech:'electric',co2:0,mass:1600,n:50}];let f=E.fleet(rows,1);eq(f.all.P,60);eq(f.all.N,250);eq(f.all.n,150);eq(f.all.M,(100*1278+50*1600)/150);eq(f.all.T6,167+.0267*(f.all.M-1278));eq(f.all.T7,224+.09*(f.all.M-1431));
+for(let s=1;s<=4;s++){const x=E.fleet(rows,s);eq(x.C,[167,163,157,150][s-1]);eq(x.D,[224,217,210,204][s-1]);eq(x.all.T6,x.C+.0267*(x.all.M-1278));eq(x.all.T7,x.D+.09*(x.all.M-1431))}
+for(const [tech,v] of [['ice',1],['gas',1.5],['mild',2],['hybrid',2.5],['electric',3]]){eq(E.fleet([{...base,tech,co2:tech==='electric'?0:150,n:1}],1).rows[0].v,v)}
+eq(E.fleet([{...base,tech:'ice',co2:99,n:1}],1).rows[0].v,2);eq(E.fleet([{...base,tech:'ice',co2:100,n:1}],1).rows[0].v,1);eq(E.fleet([{...base,mass:800,tech:'ice',co2:99,n:1}],1).rows[0].v,1);eq(E.fleet([{...base,tech:'hybrid',fallback:true,n:1}],1).rows[0].v,1);
+same(E.fleet([{...base,tech:'ice',n:0}],1).all,null);let mix=E.fleet([...rows,{...base,group:'N1',mass:1431,co2:220,tech:'ice',n:20}],1);eq(mix.m1.P,60);eq(mix.commercial.P,220);eq(mix.commercial.T7,224);
+for(const p of [{...base,mass:''},{...base,co2:-1},{...base,stage:3},{...base,group:'M3'}]){assert.throws(()=>E.product(p));checks++}assert.throws(()=>E.fleet([{...base,n:1.1,tech:'ice'}],1));checks++;assert.throws(()=>E.fleet([{...base,n:1,tech:'electric'}],1));checks++;
+console.log(`${checks} calculation assertions passed.`);
