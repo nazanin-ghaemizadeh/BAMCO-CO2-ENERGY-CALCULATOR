@@ -177,3 +177,20 @@ header.app-header .header-tag{position:relative;z-index:1;border:1px solid #ffff
 header.app-header .furnace-print{position:relative;z-index:1;background:#ffffff12;color:#fff;border:1px solid #ffffff38;border-radius:10px;padding:10px 14px;white-space:nowrap;font-size:12px}
 @media(max-width:850px){header.app-header{max-width:calc(100% - 24px)!important;padding:20px!important;gap:10px!important;flex-wrap:wrap}header.app-header .company-logo{flex-basis:95px;width:95px;height:55px}header.app-header h1{font-size:22px!important}header.app-header .header-tag{display:none}header.app-header .furnace-print{margin-left:auto}}
 @media print{header.app-header{background:white!important;color:#183c42!important;box-shadow:none!important}header.app-header h1{color:#183c42!important}header.app-header .furnace-print{display:none!important}}
+
+
+/* Same overall Paint Shop page frame rather than a themed landing page. */
+body{background:radial-gradient(ellipse at 92% -6%,#d9eee7 0%,transparent 37%),linear-gradient(175deg,#f5f8f8,#eaf2ef)}
+.app-shell{max-width:1600px;margin:0 auto;padding:30px 34px 18px}
+.app-shell>header.app-header{width:100%!important;max-width:none!important;margin:0 0 28px!important}
+.app-shell>main{max-width:none;width:100%;padding:0;margin:0}
+.app-shell .nav-tabs{display:flex;gap:6px;margin-bottom:24px;padding:5px;width:fit-content;max-width:100%;background:#e1e8ef;border-radius:12px}
+.app-shell .nav-tabs button{border:0;background:transparent;color:#6c7c8d;border-radius:9px;padding:12px 33px;font-size:14px;font-weight:650}
+.app-shell .nav-tabs button.active{color:#132b3e!important;background:#fff!important;box-shadow:0 2px 8px #182e4210!important}
+.app-shell .section-title{margin:0 0 18px}
+.app-shell .product-grid{gap:24px}
+.app-shell .product-grid>.card,.app-shell .card{border:1px solid #deebe6;background:#fff;border-radius:21px;box-shadow:0 15px 45px rgba(23,64,61,.075)}
+.app-shell .assumption{margin:0 0 20px}
+.app-shell footer{margin-top:35px}
+.app-shell .hero{display:none!important}
+@media(max-width:760px){.app-shell{padding:11px}.app-shell>header.app-header{padding:18px!important;border-radius:17px!important}.app-shell .nav-tabs{width:100%;overflow:auto;flex-wrap:nowrap}.app-shell .nav-tabs button{padding:10px 14px;white-space:nowrap}.app-shell .product-grid{grid-template-columns:1fr}}
