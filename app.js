@@ -3,7 +3,7 @@ const $=id=>document.getElementById(id),fmt=n=>CO2.format3(n),esc=s=>String(s??'
 let lastProduct=null,lastFleet=null;
 const techs={ice:'Petrol / Diesel',gas:'CNG / LPG',mild:'Micro / Mild Hybrid',hybrid:'Full Hybrid / Plug-in / Range Extender',electric:'Electric'};
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-tab]').forEach(t=>{t.classList.toggle('active',t===b);t.setAttribute('aria-selected',t===b?'true':'false')});document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===b.dataset.tab))}));
-$('print').onclick=()=>window.print();
+if($('print')) $('print').onclick=()=>window.print();
 function productInput(){return {group:$('group').value,stage:+$('stage').value,mass:$('mass').value,co2:$('co2').value,van:$('van').checked,automatic:$('automatic').checked,awd:$('awd').checked,table2PerCase:$('table2Mode').value==='each'}}
 function m0Note(){const m1=$('group').value==='M1';$('table2Wrap').hidden=m1;$('m0Note').textContent=`Reference Mass M₀ = ${m1?'1278':'1431'} kg. `+($('stage').value==='2'?'Stage 2: same reference mass as Stage 1 as requested; this is not a newly published Stage 2 value.':'Stage 1: pursuant to Table '+(m1?'1':'2')+' of the standard.');invalidateProduct()}
 function invalidateProduct(){if(lastProduct){lastProduct=null;$('productOutput').innerHTML='<div class="card empty"><h3>Inputs Have Changed</h3><p>Recalculate to see updated results.</p></div>'}}
