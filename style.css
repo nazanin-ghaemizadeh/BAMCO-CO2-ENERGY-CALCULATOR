@@ -218,3 +218,20 @@ body{background:radial-gradient(ellipse at 92% -6%,#d9eee7 0%,transparent 37%),l
 #reference table td.num{text-align:center!important}
 #reference .reference-grid .card h3{text-align:center}
 @media(max-width:760px){.app-shell nav.nav-tabs{gap:8px!important}.app-shell nav.nav-tabs button{flex:1 1 140px!important;min-height:52px!important;padding:11px 12px!important;font-size:13px!important}}
+
+
+/* Typeset reference equations as distinct readable mathematical rows. */
+#reference .formula{background:#f7faf9;border:1px solid #dce9e4;border-radius:13px;padding:14px;overflow-x:auto}
+#reference .equation-set{display:flex;flex-direction:column;gap:0;direction:ltr;text-align:left;font-family:"Times New Roman",Times,serif!important}
+#reference .equation-row{display:grid;grid-template-columns:minmax(100px,32%) minmax(0,1fr);align-items:center;gap:16px;padding:13px 10px;border-bottom:1px solid #dce9e4}
+#reference .equation-row:last-child{border-bottom:0}
+#reference .equation-label{font-size:13px;font-weight:700;color:#376b60;line-height:1.45}
+#reference .equation-expression{font-size:17px;line-height:1.8;color:#153e3b;white-space:normal;overflow-wrap:normal;word-break:normal}
+#reference .fraction{display:inline-flex;vertical-align:middle;flex-direction:column;align-items:center;justify-content:center;text-align:center;line-height:1.35;margin:0 5px;font-size:.93em}
+#reference .fraction>span:first-child{border-bottom:1.5px solid currentColor;padding:0 7px 5px}
+#reference .fraction>span:last-child{padding:4px 7px 0}
+#reference .table-equation{font-size:15px;white-space:nowrap}
+#reference .grade-equations .equation-row{grid-template-columns:60px minmax(0,1fr)}
+#reference .grade-equations .equation-label{font-size:18px;text-align:center}
+#reference .reference-grid table th,#reference .reference-grid table td{text-align:center!important;vertical-align:middle!important}
+@media(max-width:620px){#reference .equation-row{grid-template-columns:1fr;gap:4px;padding:11px 5px}#reference .equation-expression{font-size:15px}#reference .grade-equations .equation-row{grid-template-columns:48px minmax(0,1fr)}#reference .table-equation{font-size:12px}}
