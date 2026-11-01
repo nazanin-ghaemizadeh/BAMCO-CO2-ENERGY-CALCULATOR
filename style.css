@@ -89,3 +89,54 @@ footer{color:#738780}
 @media(max-width:850px){header{max-width:calc(100% - 24px);margin:12px auto;padding:16px}.hero{min-height:190px}main{padding:0 12px}.card{padding:18px}nav{overflow-x:auto;flex-wrap:nowrap}nav button{flex-shrink:0;padding:10px 12px}}
 @media(max-width:480px){header .official-logo{transform:scale(.8);transform-origin:center}.hero{min-height:155px}h1{font-size:27px}nav button{font-size:11px}.fields{grid-template-columns:1fr 1fr}}
 @media print{header{background:#fff!important;color:#17383d;box-shadow:none;border:0}header .brand,header .standard{color:#17383d}.card{box-shadow:none}nav{display:none!important}}
+
+
+/* Pixel-oriented alignment with BAMCO PAINT SHOP (furnace) visual components.
+   The furnace project specifies Times New Roman globally. */
+:root{--ui-bg:#eff4f3;--ui-ink:#19363a;--ui-muted:#647b7d;--ui-line:#dce9e5;--ui-deep:#092e38;--ui-green:#206c56;--ui-sage:#e5f4ec;--ui-shadow:0 15px 45px rgba(23,64,61,.075)}
+html,body,body *,body *::before,body *::after,button,input,select,textarea,table,option,summary,svg text{font-family:"Times New Roman",Times,serif!important}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(ellipse at 92% -6%,#d9eee7 0%,transparent 37%),linear-gradient(175deg,#f5f8f8,#eaf2ef);color:var(--ui-ink);font-size:16px}
+header{max-width:calc(100% - 68px);width:auto;margin:30px auto 0;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:32px 36px;border-radius:20px;border:0;color:#fff;background-color:#132b3e;background-image:radial-gradient(ellipse at 94% 0%,#284f63 0%,transparent 52%),linear-gradient(120deg,#122838,#18394d);box-shadow:0 12px 30px #182e4210}
+header:after{right:-35px;bottom:-125px;width:410px;height:270px;box-shadow:0 0 0 36px #ffffff04,0 0 0 72px #ffffff03}
+header .brand{color:#fff;gap:24px;direction:rtl;position:relative;z-index:1}
+header .official-logo{flex:0 0 190px;width:190px;height:72px;background:transparent;overflow:hidden}
+header .official-logo img{object-fit:contain}
+header .brand-copy{border:0;padding:0;color:#fff}
+header .brand-copy b{font-size:29px;line-height:1.3;display:block;color:#fff;font-weight:700;letter-spacing:0}
+header .brand-copy small{font-size:13px;color:#bbd0d1;margin-top:5px}
+header .standard{font-size:12px;color:#b9d9d5;border:1px solid #ffffff37;border-radius:30px;padding:10px 16px;white-space:normal;max-width:250px}
+header .standard small{color:#b9d9d5}
+header #print{position:relative;z-index:1;background:#ffffff12!important;color:#f3fffb!important;border-color:#ffffff40!important}
+main{max-width:1660px;padding:0 34px}
+.hero{min-height:unset;padding:28px 4px 18px;gap:24px}
+.hero h1{font-size:clamp(26px,2.4vw,35px);font-weight:700;line-height:1.35;letter-spacing:-.3px}
+.hero .eyebrow{font-size:11px;font-weight:700;letter-spacing:1.1px;color:#63817d}
+.hero p:not(.eyebrow){font-size:14px;color:#647b7d;max-width:710px}
+.hero-art{width:240px;height:140px;border:1px solid #dce9e5;border-radius:16px;background:linear-gradient(125deg,#eaf7ef,#f8fcf9);box-shadow:0 8px 25px #17403d0b;margin:0}
+nav{display:flex;gap:6px;margin-bottom:24px;padding:5px;width:fit-content;max-width:100%;border:0;background:#e1e8ef;border-radius:12px;box-shadow:none}
+nav button{background:transparent;color:#6c7c8d;border-radius:9px;padding:12px 33px;font-size:14px;font-weight:650;box-shadow:none!important}
+nav button:hover{background:#ffffff70;color:#19363a}
+nav button.active,nav .active{color:#132b3e!important;background:#fff!important;box-shadow:0 2px 8px #182e4210!important}
+nav button span{font-size:inherit}
+.card{background:#fff;border:1px solid #deebe6;border-radius:21px;box-shadow:var(--ui-shadow);padding:31px}
+.card-heading{border-bottom:1px solid #e0eae6;padding-bottom:14px}
+.card h3,h2,.section-title h2{color:#1c4d47;font-weight:750}
+.section-title h2{font-size:29px;letter-spacing:-.3px}
+label{font-size:14px}
+input:not([type=checkbox]),select{min-height:42px;padding:9px 11px;border:1px solid #d8e6e0;border-radius:10px;background:#fcfefd;color:#19363a}
+.actions button,button.primary,button.outline{min-height:42px}
+.primary{background:linear-gradient(120deg,#165d51,#26846a);border-radius:12px;border:0;box-shadow:0 10px 25px #277b6547;color:white}
+.outline{background:white;border:1px solid #d7e7dd;color:#20594b;border-radius:11px}
+.metric{background:#f7faf9;border:1px solid #e3ede8;border-radius:13px}
+.metric:first-child{background:#eaf7ef;border-color:#cde9d8}
+.table-scroll{border:1px solid #e1ebe6;border-radius:13px}
+th{background:#e5f3ee;color:#224f47;font-weight:700}
+tr:nth-child(even) td{background:#f6faf8}
+.result-top{background:linear-gradient(126deg,#112b3b,#124451 55%,#1d645b)}
+.result-top h2,.result-top h3{color:#fff}
+.assumption{border-radius:13px;background:#eef8f1;border-color:#8ec9a8}
+footer{font-size:12px}
+@media(max-width:900px){header{max-width:calc(100% - 24px);margin:12px auto 0;padding:18px;border-radius:17px;flex-wrap:wrap}header .brand-copy b{font-size:23px}header .official-logo{flex-basis:110px;width:110px}main{padding:0 12px}.card{padding:20px}nav{width:100%;overflow:auto;flex-wrap:nowrap}nav button{white-space:nowrap;padding:11px 15px}}
+@media(max-width:520px){header .brand{gap:5px}header .brand-copy b{font-size:18px}header .brand-copy small{font-size:11px}.hero-art{display:none}.hero{padding-top:20px}.section-title h2{font-size:23px}}
+@media print{header{max-width:none;margin:0;border-radius:0;background:white!important}header .brand-copy b,header .brand-copy small,header .standard{color:#19363a!important}nav{display:none!important}}
