@@ -140,3 +140,25 @@ footer{font-size:12px}
 @media(max-width:900px){header{max-width:calc(100% - 24px);margin:12px auto 0;padding:18px;border-radius:17px;flex-wrap:wrap}header .brand-copy b{font-size:23px}header .official-logo{flex-basis:110px;width:110px}main{padding:0 12px}.card{padding:20px}nav{width:100%;overflow:auto;flex-wrap:nowrap}nav button{white-space:nowrap;padding:11px 15px}}
 @media(max-width:520px){header .brand{gap:5px}header .brand-copy b{font-size:18px}header .brand-copy small{font-size:11px}.hero-art{display:none}.hero{padding-top:20px}.section-title h2{font-size:23px}}
 @media print{header{max-width:none;margin:0;border-radius:0;background:white!important}header .brand-copy b,header .brand-copy small,header .standard{color:#19363a!important}nav{display:none!important}}
+
+
+/* English-only furnace layout direction and Times typography. */
+html,body{direction:ltr;text-align:left}
+header,.brand,.hero,.section-title,.card-heading,.actions,.stats,.metrics,.result-heading,footer{direction:ltr}
+header .brand{direction:ltr}
+header .brand-copy{border-right:0;border-left:1px solid #ffffff35;padding-right:0;padding-left:22px}
+header .standard{margin-inline-start:auto;text-align:right}
+nav{direction:ltr}
+nav button span{margin-right:0;margin-left:10px}
+label,th,td{text-align:left}
+input:not([type=checkbox]),select{direction:ltr;text-align:left}
+input[type=number],td.num,.metric b,.stats b{direction:ltr;text-align:right;font-family:"Times New Roman",Times,serif!important}
+.assumption{border-right:0;border-left:4px solid #46a783}
+fieldset,legend{direction:ltr}
+.check{margin:0 18px 8px 0}
+.formula{direction:ltr;text-align:left}
+table{direction:ltr}
+.energy-label,.label-head,.label-data,.label-tail{direction:ltr}
+.grade-chip,.grade-badge{font-family:"Times New Roman",Times,serif!important}
+#fleetTable{min-width:1100px}
+@media(max-width:850px){header .standard{text-align:left}nav button span{margin-left:5px}}
