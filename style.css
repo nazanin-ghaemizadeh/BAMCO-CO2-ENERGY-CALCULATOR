@@ -194,3 +194,13 @@ body{background:radial-gradient(ellipse at 92% -6%,#d9eee7 0%,transparent 37%),l
 .app-shell footer{margin-top:35px}
 .app-shell .hero{display:none!important}
 @media(max-width:760px){.app-shell{padding:11px}.app-shell>header.app-header{padding:18px!important;border-radius:17px!important}.app-shell .nav-tabs{width:100%;overflow:auto;flex-wrap:nowrap}.app-shell .nav-tabs button{padding:10px 14px;white-space:nowrap}.app-shell .product-grid{grid-template-columns:1fr}}
+
+
+/* Final navigation styling: identical Paint Shop pill-tab geometry and interaction. */
+.app-shell nav.nav-tabs{display:flex!important;align-items:center;gap:6px!important;margin:0 0 24px!important;padding:5px!important;width:fit-content!important;max-width:100%!important;border:0!important;border-radius:12px!important;background:#e1e8ef!important;box-shadow:none!important;overflow-x:auto}
+.app-shell nav.nav-tabs button{display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;flex-shrink:0;border:0!important;border-radius:9px!important;padding:12px 33px!important;color:#6c7c8d!important;background:transparent!important;font-size:14px!important;font-weight:650!important;line-height:1.5;box-shadow:none!important;transform:none!important;filter:none!important}
+.app-shell nav.nav-tabs button span{font-size:inherit!important;margin:0!important;color:inherit!important}
+.app-shell nav.nav-tabs button:hover{background:#ffffff70!important;color:#19363a!important}
+.app-shell nav.nav-tabs button.active,.app-shell nav.nav-tabs button[aria-selected="true"]{color:#132b3e!important;background:#fff!important;box-shadow:0 2px 8px #182e4210!important}
+.app-shell nav.nav-tabs button:focus-visible{outline:2px solid #267c60!important;outline-offset:2px}
+@media(max-width:760px){.app-shell nav.nav-tabs{width:100%!important;max-width:100%!important}.app-shell nav.nav-tabs button{padding:11px 15px!important}}
