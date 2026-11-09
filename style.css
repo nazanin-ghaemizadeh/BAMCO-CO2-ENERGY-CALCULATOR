@@ -189,8 +189,10 @@ body{background:radial-gradient(ellipse at 92% -6%,#d9eee7 0%,transparent 37%),l
 .app-shell .nav-tabs button.active{color:#132b3e!important;background:#fff!important;box-shadow:0 2px 8px #182e4210!important}
 .app-shell .section-title{margin:0 0 18px}
 .app-shell .product-grid{gap:24px}
-.app-shell .product-grid>.card,.app-shell .card{border:1px solid #deebe6;border-radius:21px;box-shadow:0 15px 45px rgba(23,64,61,.075)}
-.app-shell .product-grid>.card:where(:not(.result-top)),.app-shell .card:where(:not(.result-top)){background:#fff}
+.app-shell .product-grid>.card,.app-shell .card{border:1px solid #deebe6;background:#fff;border-radius:21px;box-shadow:0 15px 45px rgba(23,64,61,.075)}
+.app-shell .result-top{color:#1c4d47}
+.app-shell .result-top h3{color:inherit}
+.app-shell .result-top :is(.eyebrow,.stats small,.note){color:#42645e}
 .app-shell .assumption{margin:0 0 20px}
 .app-shell footer{margin-top:35px}
 .app-shell .hero{display:none!important}
